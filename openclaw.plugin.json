@@ -1,0 +1,94 @@
+{
+  "id": "placet",
+  "name": "Placet",
+  "description": "Placet channel plugin – human-in-the-loop reviews and messaging.",
+  "channels": ["placet"],
+  "channelEnvVars": {
+    "placet": ["PLACET_API_KEY", "PLACET_URL"]
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "API Key",
+      "placeholder": "hp_...",
+      "sensitive": true
+    },
+    "instanceUrl": {
+      "label": "Instance URL",
+      "placeholder": "https://app.placet.io"
+    }
+  },
+  "channelConfigs": {
+    "placet": {
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "instanceUrl": {
+            "type": "string",
+            "description": "Placet instance URL (e.g. https://app.placet.io)"
+          },
+          "apiKey": {
+            "type": "string",
+            "description": "Placet API key (starts with hp_)"
+          },
+          "agentName": {
+            "type": "string",
+            "description": "Name for the auto-created Placet agent"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "Existing Placet agent ID to use instead of auto-creating"
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": ["instanceUrl", "apiKey"]
+      },
+      "uiHints": {
+        "apiKey": {
+          "label": "API Key",
+          "placeholder": "hp_...",
+          "sensitive": true
+        },
+        "instanceUrl": {
+          "label": "Instance URL",
+          "placeholder": "https://app.placet.io"
+        },
+        "agentName": {
+          "label": "Agent Name",
+          "placeholder": "OpenClaw Agent"
+        },
+        "agentId": {
+          "label": "Agent ID",
+          "help": "Leave empty to auto-create an agent"
+        }
+      },
+      "label": "Placet",
+      "description": "Human-in-the-loop reviews and messaging via Placet"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "instanceUrl": {
+        "type": "string"
+      },
+      "apiKey": {
+        "type": "string"
+      },
+      "agentName": {
+        "type": "string"
+      },
+      "agentId": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": ["instanceUrl", "apiKey"]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "openclaw-placet-channel",
+  "version": "0.1.0",
+  "description": "OpenClaw channel plugin for Placet – human-in-the-loop reviews and messaging.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://placet.io",
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "placet",
+    "human-in-the-loop",
+    "hitl",
+    "channel"
+  ],
+  "author": {
+    "name": "Placet",
+    "email": "support@placet.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/placet-io/openclaw-placet-channel.git"
+  },
+  "openclaw": {
+    "extensions": ["./dist/index.js"],
+    "setupEntry": "./dist/setup-entry.js",
+    "channel": {
+      "id": "placet",
+      "label": "Placet",
+      "blurb": "Connect OpenClaw to Placet for human-in-the-loop reviews and messaging."
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "openclaw.plugin.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.3.0"
+  },
+  "devDependencies": {
+    "openclaw": ">=2026.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
